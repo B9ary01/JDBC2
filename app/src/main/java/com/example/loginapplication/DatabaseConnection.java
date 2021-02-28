@@ -75,7 +75,7 @@ public class DatabaseConnection extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
-            z="Loading, please wait ...";
+            z=" Loading, please wait ...";
         }
 
         @Override
@@ -91,7 +91,8 @@ public class DatabaseConnection extends AppCompatActivity {
                         z = "Please check your internet connection";
                     } else {
 
-                        String query="insert into Dimash values('"+namestr+"','"+passstr+"','"+emailstr+"')";
+                       //insert query
+                        String query="insert into dimash values('"+namestr+"','"+passstr+"','"+emailstr+"')";
 
                         Statement stmt = con.createStatement();
                         stmt.executeUpdate(query);
