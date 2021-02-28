@@ -20,8 +20,8 @@ public class ConActivity extends AppCompatActivity {
 
     //get host ip address hostname -I | awk '{print $1}'
     //url for database connection
-    private static final String DB_URL="jdbc:mysql://192.168.102.104:3306/users?autoReconnect=true&useSSL=false";
-    private static final String USER="r"; //   user
+    private static final String DB_URL="jdbc:mysql://192.168.102.104:3306/users";
+    private static final String USER="root"; //   user
     private static final String PASS="Splitsy14"; //  password
 
 
@@ -65,8 +65,8 @@ public class ConActivity extends AppCompatActivity {
                     Class.forName("com.mysql.cj.jdbc.Driver");
 
                     //connecting to mysql database using driver
-                    Connection conn = DriverManager.getConnection("jdbc:mysql://192.168.102.104:3306/users?autoReconnect=true&useSSL=false",
-                            "sysadmin", "Splitsy14");
+                    Connection conn = DriverManager.getConnection("jdbc:mysql://192.168.102.104:3306/users",
+                            "root", "Splitsy14");
 
                     if (conn != null) {
                         msg = "connected ";
