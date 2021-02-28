@@ -1,0 +1,22 @@
+                                                                                                                   
+<!doctype html>                                                                                                      
+<html>                                                                                                               
+<head>                                                                                                               
+<title>members list!</title>                                                                                         
+</head>                                                                                                              
+                                                                                                                     
+<h1> This is List Page </h1>                                                                                         
+<body>                                                                                                               
+                                                                                                                     
+<h3>You can see members name and email here</h3>                                                                     
+<ul>                                                                                                                 
+<% availablemembers.forEach(function(user){                                                                          
+ %>                                                                                                                  
+<li><%= user.name %>, <%= user.email %> </li>                                                                        
+<% })                                                                                                                
+ %>                                                                                                                  
+                                                                                                                     
+</ul>                                                                                                                
+                                                                                                                     
+</body>                                                                                                              
+</html> 
