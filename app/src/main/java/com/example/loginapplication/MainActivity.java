@@ -26,8 +26,6 @@ public class MainActivity extends AppCompatActivity {
 
     private Button second;
 
-    //jdbc
-
 
     TextView text,errorText;
 
@@ -54,8 +52,7 @@ public class MainActivity extends AppCompatActivity {
         credentials.setPassword("1234");
         credentials.setUsername("splitsy");
 
-//////////
-        //JDBC
+
         text = (TextView) findViewById(R.id.textView);
 
         errorText = (TextView) findViewById(R.id.textView2);
@@ -81,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //////////
 
 
 
@@ -131,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Statement statement = connection.createStatement();
 
-                ResultSet resultSet = statement.executeQuery("SELECT * FROM users");
+                ResultSet resultSet = statement.executeQuery("SELECT * FROM members");
 
                 while (resultSet.next()) {
 

@@ -44,8 +44,11 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxjava:2.1.7'
 
     //retrofit
-    implementation 'com.squareup.retrofit2:adapter-rxjava3:2.9.0'
     implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.7.1'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
+
 
 
     //material dialog
