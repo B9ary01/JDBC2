@@ -29,7 +29,7 @@ public class RetrofitCon {
     public static Retrofit getInstance() {
         if (instance == null) {
             instance = new Retrofit.Builder()
-                    .baseUrl("https://192.168.102.104:8000")
+                    .baseUrl("http://192.168.0.17:3000")
                     .addConverterFactory(GsonConverterFactory.create())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .build();

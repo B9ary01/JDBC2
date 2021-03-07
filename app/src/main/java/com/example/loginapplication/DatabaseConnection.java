@@ -92,7 +92,7 @@ public class DatabaseConnection extends AppCompatActivity {
                     } else {
 
                        //insert query
-                        String query="insert into dimash values('"+namestr+"','"+passstr+"','"+emailstr+"')";
+                        String query="insert into test9 values('"+namestr+"','"+passstr+"','"+emailstr+"')";
 
                         Statement stmt = con.createStatement();
                         stmt.executeUpdate(query);

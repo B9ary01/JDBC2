@@ -20,9 +20,9 @@ public class ConActivity extends AppCompatActivity {
 
     //get host ip address hostname -I | awk '{print $1}'
     //url for database connection
-    private static final String DB_URL="jdbc:mysql://192.168.102.104:3306/users";
+    private static final String DB_URL="jdbc:mysql://192.168.0.17:3000/mydb";
     private static final String USER="root"; //   user
-    private static final String PASS="Splitsy14"; //  password
+    private static final String PASS="YourRootPassword"; //  password
 
 
     @Override
@@ -34,7 +34,6 @@ public class ConActivity extends AppCompatActivity {
         editName=findViewById(R.id.editname);
         editEmail=findViewById(R.id.editemail);
         editPassword=findViewById(R.id.editpassword);
-
     }
 
     public void btnConn(View view){
@@ -65,8 +64,8 @@ public class ConActivity extends AppCompatActivity {
                     Class.forName("com.mysql.cj.jdbc.Driver");
 
                     //connecting to mysql database using driver
-                    Connection conn = DriverManager.getConnection("jdbc:mysql://192.168.102.104:3306/users",
-                            "root", "Splitsy14");
+                    Connection conn = DriverManager.getConnection("jdbc:mysql://192.168.0.17:3000/mydb",
+                            "root", "YourRootPassword");
 
                     if (conn != null) {
                         msg = "connected ";
@@ -75,7 +74,7 @@ public class ConActivity extends AppCompatActivity {
                         msg = "error, problem with connection..";
                     } else {
                         //insert into database table
-                        String query1 = "insert into members(name,password,email) values(' " + txtName + " ',' " + txtPassword + " ',' " + txtEmail + " ')";
+                        String query1 = "INSERT INTO test9 (name,password,email) values(' " + txtName + " ',' " + txtPassword + " ',' " + txtEmail + " ')";
                         Statement stmt1 = conn.createStatement();
                         stmt1.executeUpdate(query1);
 

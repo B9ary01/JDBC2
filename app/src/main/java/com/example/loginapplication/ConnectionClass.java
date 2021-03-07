@@ -11,9 +11,9 @@ import java.sql.SQLException;
 public class ConnectionClass {
     String classs = "com.mysql.cj.jdbc.Driver";
 
-    String url = "jdbc:mysql://127.0.0.1:3306/lapsi?";
+    String url = "jdbc:mysql://192.168.0.17:3000/mydb";
     String un = "root";
-    String password = "";
+    String password = "YourRootPassword";
 
 
 

@@ -121,13 +121,13 @@ public class MainActivity extends AppCompatActivity {
 
             try {
 
-                Class.forName("com.mysql.jdbc.Driver");
+                Class.forName("com.mysql.cj.jdbc.Driver");
 
-                Connection connection = DriverManager.getConnection("jdbc:mysql://192.168.102.1", "sysadmin", "Splitsy14");
+                Connection connection = DriverManager.getConnection("jdbc:mysql://192.168.0.17:3000", "root", "YourRootPassword");
 
                 Statement statement = connection.createStatement();
 
-                ResultSet resultSet = statement.executeQuery("SELECT * FROM members");
+                ResultSet resultSet = statement.executeQuery("SELECT * FROM test9");
 
                 while (resultSet.next()) {
 

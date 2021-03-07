@@ -17,9 +17,11 @@ import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.dialog.MaterialDialogs;
 
+import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -71,7 +73,7 @@ public class LoginPage extends AppCompatActivity {
 
 
         myNode myNode;
-        String baseUrl="https://192.168.102.104:8000";
+        String baseUrl="https://192.168.0.17:3000";
 
         //view
         btn_register = findViewById(R.id.btn_register);
@@ -95,7 +97,7 @@ public class LoginPage extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                loginUser1(edit_name.getText().toString());
+                loginUser1(edit_name.getText().toString(),edit_password.getText().toString());
             }
         });
 
@@ -113,7 +115,7 @@ public class LoginPage extends AppCompatActivity {
 /*
     public void loginUser(View v) {
         String usrname=edit_name.getText().toString().trim();
-      Call<String>call= myNode.loginUser(usrname);
+      Call<String>call= (Call<String>) myNode.loginUser(usrname);
 
        call.enqueue(new Callback<String>() {
            @Override
@@ -138,22 +140,24 @@ public class LoginPage extends AppCompatActivity {
                 .setTitle("a333!")
                 .setDescription("What can we improve? Your feedback is always welcome.")
                 .show();*/
-
     }
 
-    private void loginUser1(String name) {
-        compositeDisposable.add(myAPI.loginUser(name).subscribeOn(AndroidSchedulers.mainThread())
-        .subscribe(new Consumer<String>() {
-            @Override
-            public void accept(String s) throws Exception {
-                if(s.contains("name")) {
+    private void loginUser1(String name,String password) {
+        compositeDisposable.add(myAPI.loginUser(name,password)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(String s) throws Exception {
+
+                if(s.contains("name")|| s.contains("password")) {
                     Toast.makeText(LoginPage.this, "login success", Toast.LENGTH_SHORT).show();
                 } else{
                     Toast.makeText(LoginPage.this,"+s",Toast.LENGTH_SHORT).show();
             }}
         },throwable -> {
             // Error Consumer
-            Toast.makeText(LoginPage.this,"unknown",Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginPage.this,"unknown user",Toast.LENGTH_SHORT).show();
 
         }));
     }

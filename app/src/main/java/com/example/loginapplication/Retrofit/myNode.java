@@ -14,8 +14,9 @@ public interface myNode {
             @Field("password") String password,
             @Field("email") String email);
 
-    @POST("search-result")
+    @POST("login")
     @FormUrlEncoded
-    Observable<String> loginUser(@Field("name") String name);
+    Observable<String> loginUser(@Field("name") String name,
+                                 @Field("password") String password);
 
 }
